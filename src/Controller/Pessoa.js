@@ -18,7 +18,7 @@ export async function selectPessoas(req, res) {
 
 // VER SOMENTE UM REGISTRO PRESENTE NO BANCO DE DADOS
 export async function selectPessoa(req, res) {
-  let id = req.body.id
+  let id = req.query.id
   openDB().then((db) => {
     db.get("SELECT * FROM Pessoa WHERE id=?", [id])
     .then(pessoa => res.json(pessoa))
